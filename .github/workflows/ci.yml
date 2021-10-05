@@ -20,7 +20,7 @@ jobs:
         bundler-cache: true
 
     - name: Run Rubocop
-      run: rubocop -A
+      run: bundle exec rubocop
 
   httparty-rspec-tests:
     needs: rubocop
@@ -36,4 +36,4 @@ jobs:
         bundler-cache: true
 
     - name: Run API tests
-      run: rspec
+      run: bundle exec rspec
