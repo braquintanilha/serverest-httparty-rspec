@@ -17,9 +17,9 @@ Uma vez que todas as dependências já estão listadas no arquivo `Gemfile`, bas
 
 `rspec` - executa todos os testes;
 
-`rubocop` - executa a análise estática de código do Rubocop e lista as ofensas;
+`rubocop` - executa a análise estática de código do RuboCop e lista as ofensas;
 
-`rubocop -A` - executa a análisa estática de código e corrige as iconsistências.
+`rubocop -A` - executa a análisa estática de código do RuboCop e corrige as inconsistências.
 
 ## Arquitetura e design pattern
 
@@ -34,6 +34,16 @@ Nesse projeto foi utilizado um pattern muito comum em testes de API. A estrutura
 `fixtures/payloads` - arquivos JSON de payload utilizados nos testes;
 
 `support/global_instances` - métodos que instanciam as classes de requests.
+
+## Integração contínua
+
+Foi implementado o pipeline de integração contínua com GitHub Actions. O arquivo de configuração do CI é o `.github/workflows/ci.yml`. Em todo push ou pull_request no branch `master` o pipeline é executado. Da forma como foi configurado, o job `rubocop` é executado como pré-condição dos testes e, caso execute sem falhas, o job `api-tests` é executado.
+
+Sobre os jobs:
+
+`rubocop` - executa a ferramenta de análise estática de código RuboCop. Caso alguma ofensa seja encontrada, o build quebra e já retorna erro;
+
+`api-tests` - executa todos os arquivos de teste.
 
 ___
 
