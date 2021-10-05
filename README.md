@@ -19,7 +19,7 @@ Uma vez que todas as dependências já estão listadas no arquivo `Gemfile`, bas
 
 `rubocop` - executa a análise estática de código do Rubocop e lista as ofensas;
 
-`rubocop -A` - executa a análisa estática de código e corrige as iconsistências.
+`rubocop -A` - executa a análisa estática de código e corrige as inconsistências.
 
 ## Arquitetura e design pattern
 
