@@ -48,4 +48,5 @@ Sobre os jobs:
 ___
 
 Se você tem alguma dúvida ou sugestão, entre em contato! Vamos bater um papo ☕
-Feito com <3 por Bruno Quintanilha.
+
+Feito com 💜 por Bruno Quintanilha.
