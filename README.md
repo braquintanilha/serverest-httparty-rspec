@@ -38,4 +38,4 @@ Nesse projeto foi utilizado um pattern muito comum em testes de API. A estrutura
 ___
 
 Se você tem alguma dúvida ou sugestão, entre em contato! Vamos bater um papo ☕
-Feito com <3 pro Bruno Quintanilha.
+Feito com <3 por Bruno Quintanilha.
