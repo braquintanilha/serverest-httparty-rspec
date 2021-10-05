@@ -1,0 +1,19 @@
+{
+    "valid": {
+        "nome": "Fulano da Silva",
+        "email": "beltrano@qa.com.br",
+        "password": "teste",
+        "administrador": "true"
+    },
+    "incorrect": {
+        "email": "usuario@incorreto.com",
+        "password": "123456"
+    },
+    "null": {
+        "email": "",
+        "password": ""
+    },
+    "invalid": {
+        "email": "usuario@invalido"
+    }
+}
