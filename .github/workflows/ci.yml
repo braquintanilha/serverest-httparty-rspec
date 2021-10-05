@@ -12,12 +12,12 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-      
+
     - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7
-          bundler-cache: true
+        - uses: ruby/setup-ruby@v1
+          with:
+            ruby-version: 2.7
+            bundler-cache: true
 
     - name: Run Rubocop
       run: rubocop -A
