@@ -15,7 +15,11 @@ Uma vez que todas as dependências já estão listadas no arquivo `Gemfile`, bas
 
 ## Execução do projeto
 
-`rspec` - executa todos os testes
+`rspec` - executa todos os testes;
+
+`rubocop` - executa a análise estática de código do Rubocop e lista as ofensas;
+
+`rubocop -A` - executa a análisa estática de código e corrige as iconsistências.
 
 ## Arquitetura e design pattern
 
@@ -34,3 +38,4 @@ Nesse projeto foi utilizado um pattern muito comum em testes de API. A estrutura
 ___
 
 Se você tem alguma dúvida ou sugestão, entre em contato! Vamos bater um papo ☕
+Feito com <3 por Bruno Quintanilha.

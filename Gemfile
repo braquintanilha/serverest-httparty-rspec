@@ -2,7 +2,8 @@
 
 source 'https://rubygems.org'
 
-gem 'httparty'
-gem 'rspec'
-gem 'json_matchers'
 gem 'faker'
+gem 'httparty'
+gem 'json_matchers'
+gem 'rspec'
+gem 'rubocop'
