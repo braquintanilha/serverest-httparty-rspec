@@ -22,7 +22,7 @@ jobs:
     - name: Run Rubocop
       run: bundle exec rubocop
 
-  httparty-rspec-tests:
+  api-tests:
     needs: rubocop
     runs-on: ubuntu-latest
     steps:
