@@ -22,7 +22,7 @@ jobs:
     - name: Run Rubocop
       run: bundle exec rubocop
 
-  api-tests:
+  login-tests:
     needs: rubocop
     runs-on: ubuntu-latest
     steps:
@@ -35,5 +35,133 @@ jobs:
         ruby-version: 2.7
         bundler-cache: true
 
-    - name: Run API tests
-      run: bundle exec rspec
+    - name: Run login tests
+      run: bundle exec rspec spec/test/login/login_spec.rb
+  
+  delete-products-tests:
+    needs: rubocop
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+        bundler-cache: true
+
+    - name: Run delete products tests
+      run: bundle exec rspec spec/test/products/delete_products_spec.rb
+
+  get-products-tests:
+    needs: rubocop
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+        bundler-cache: true
+
+    - name: Run get products tests
+      run: bundle exec rspec spec/test/products/get_products_spec.rb
+  
+  post-products-tests:
+    needs: rubocop
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+        bundler-cache: true
+
+    - name: Run post products tests
+      run: bundle exec rspec spec/test/products/post_products_spec.rb
+  
+  put-products-tests:
+    needs: rubocop
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+        bundler-cache: true
+
+    - name: Run put products tests
+      run: bundle exec rspec spec/test/products/put_products_spec.rb
+  
+  delete-users-tests:
+    needs: rubocop
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+        bundler-cache: true
+
+    - name: Run delete users tests
+      run: bundle exec rspec spec/test/users/delete_users_spec.rb
+
+  get-users-tests:
+    needs: rubocop
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+        bundler-cache: true
+
+    - name: Run get users tests
+      run: bundle exec rspec spec/test/users/get_users_spec.rb
+
+  post-users-tests:
+    needs: rubocop
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+        bundler-cache: true
+
+    - name: Run post users tests
+      run: bundle exec rspec spec/test/users/post_users_spec.rb
+
+  put-users-tests:
+    needs: rubocop
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+        bundler-cache: true
+
+    - name: Run put users tests
+      run: bundle exec rspec spec/test/users/put_users_spec.rb
