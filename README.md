@@ -37,13 +37,13 @@ Nesse projeto foi utilizado um pattern muito comum em testes de API. A estrutura
 
 ## Integração contínua
 
-Foi implementado o pipeline de integração contínua com GitHub Actions. O arquivo de configuração do CI é o `.github/workflows/ci.yml`. Em todo push ou pull_request no branch `master` o pipeline é executado. Da forma como foi configurado, o job `rubocop` é executado como pré-condição dos testes e, caso execute sem falhas, o job `api-tests` é executado.
+Foi implementado o pipeline de integração contínua com GitHub Actions. O arquivo de configuração do CI é o `.github/workflows/ci.yml`. Em todo push ou pull_request no branch `master` o pipeline é executado. Da forma como foi configurado, o job `rubocop` é executado como pré-condição dos testes e, caso execute sem falhas, todos os jobs de teste são executados de forma paralela. Cada job de teste executa um arquivo de teste do projeto (`*_spec.rb`)
 
 Sobre os jobs:
 
 `rubocop` - executa a ferramenta de análise estática de código RuboCop. Caso alguma ofensa seja encontrada, o build quebra e já retorna erro;
 
-`api-tests` - executa todos os arquivos de teste.
+`post-products-tests` - executa o script `bundle exec rspec spec/test/products/post_products_spec.rb`. Essa mesma lógica se aplica para todos os outros arquivos de teste.
 
 ___
 
