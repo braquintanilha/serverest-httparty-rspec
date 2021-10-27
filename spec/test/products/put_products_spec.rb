@@ -17,7 +17,7 @@ describe 'Products tests - PUT method' do
   it 'edit a product' do
     @payload['nome'] = Faker::Commerce.product_name
 
-    response = products_requests.put_product(@token, @product_id, @payload.to_json)
+    response = products_requests.put_product(@token, @product_id, @payload)
 
     expect(response.code).to eql 200
     expect(response.parsed_response['message']).to eql 'Registro alterado com sucesso'
@@ -26,7 +26,7 @@ describe 'Products tests - PUT method' do
   it 'validates the json schema' do
     @payload['nome'] = Faker::Commerce.product_name
 
-    response = products_requests.put_product(@token, @product_id, @payload.to_json)
+    response = products_requests.put_product(@token, @product_id, @payload)
 
     expect(response.body).to match_json_schema('products/put_product')
   end
@@ -34,7 +34,7 @@ describe 'Products tests - PUT method' do
   it 'create a product with put method' do
     @payload['nome'] = Faker::Commerce.product_name
 
-    response = products_requests.put_product(@token, Faker::Alphanumeric.alphanumeric, @payload.to_json)
+    response = products_requests.put_product(@token, Faker::Alphanumeric.alphanumeric, @payload)
 
     expect(response.code).to eql 201
     expect(response.parsed_response['message']).to eql 'Cadastro realizado com sucesso'
@@ -42,14 +42,14 @@ describe 'Products tests - PUT method' do
 
   it 'error by unauthorized user' do
     token = login_requests.get_token(admin: false)
-    response = products_requests.put_product(token, @product_id, @payload.to_json)
+    response = products_requests.put_product(token, @product_id, @payload)
 
     expect(response.code).to eql 403
     expect(response.parsed_response['message']).to eql 'Rota exclusiva para administradores'
   end
 
   it 'error by invalid token' do
-    response = products_requests.put_product(Faker::Lorem.word, @product_id, @payload.to_json)
+    response = products_requests.put_product(Faker::Lorem.word, @product_id, @payload)
 
     expect(response.code).to eql 401
     expect(response.parsed_response['message'])
@@ -57,7 +57,7 @@ describe 'Products tests - PUT method' do
   end
 
   it 'error by null token' do
-    response = products_requests.put_product('', @product_id, @payload.to_json)
+    response = products_requests.put_product('', @product_id, @payload)
 
     expect(response.code).to eql 401
     expect(response.parsed_response['message'])
