@@ -9,7 +9,7 @@ describe 'Users tests - DELETE method' do
       administrador: Faker::Boolean.boolean.to_s
     }
 
-    response_post_user = users_requests.post_user(payload.to_json)
+    response_post_user = users_requests.post_user(payload)
     @response_login = login_requests.login(payload[:email], payload[:password])
     @user_id = response_post_user.parsed_response['_id']
   end

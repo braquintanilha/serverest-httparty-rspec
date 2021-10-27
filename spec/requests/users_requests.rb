@@ -16,10 +16,10 @@ class UsersRequests < Base
   end
 
   def post_user(payload)
-    self.class.post('/usuarios', headers: { "Content-Type": 'application/json' }, body: payload)
+    self.class.post('/usuarios', headers: { "Content-Type": 'application/json' }, body: payload.to_json)
   end
 
   def put_user(id, payload)
-    self.class.put("/usuarios/#{id}", headers: { "Content-Type": 'application/json' }, body: payload)
+    self.class.put("/usuarios/#{id}", headers: { "Content-Type": 'application/json' }, body: payload.to_json)
   end
 end

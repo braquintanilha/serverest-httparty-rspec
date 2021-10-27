@@ -15,7 +15,7 @@ class LoginRequests < Base
       administrador: admin.to_s
     }
 
-    users_requests.post_user(payload.to_json)
+    users_requests.post_user(payload)
     response = login(payload[:email], payload[:password])
     response.parsed_response['authorization']
   end

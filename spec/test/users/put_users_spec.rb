@@ -9,14 +9,14 @@ describe 'Users tests - PUT method' do
       administrador: Faker::Boolean.boolean.to_s
     }
 
-    @response_post_user = users_requests.post_user(@payload.to_json)
+    @response_post_user = users_requests.post_user(@payload)
     @user_id = @response_post_user.parsed_response['_id']
   end
 
   it 'edit a user' do
     @payload['email'] = Faker::Internet.email
 
-    response = users_requests.put_user(@user_id, @payload.to_json)
+    response = users_requests.put_user(@user_id, @payload)
 
     expect(response.code).to eql 200
     expect(response.parsed_response['message']).to eql 'Registro alterado com sucesso'
@@ -25,7 +25,7 @@ describe 'Users tests - PUT method' do
   it 'validates the json schema' do
     @payload['email'] = Faker::Internet.email
 
-    response = users_requests.put_user(@user_id, @payload.to_json)
+    response = users_requests.put_user(@user_id, @payload)
 
     expect(response.body).to match_json_schema('users/put_user')
   end
@@ -33,7 +33,7 @@ describe 'Users tests - PUT method' do
   it 'create a user with put method' do
     @payload['email'] = Faker::Internet.email
 
-    response = users_requests.put_user(Faker::Alphanumeric.alpha(number: 10), @payload.to_json)
+    response = users_requests.put_user(Faker::Alphanumeric.alpha(number: 10), @payload)
 
     expect(response.code).to eql 201
     expect(response.parsed_response['message']).to eql 'Cadastro realizado com sucesso'
@@ -43,7 +43,7 @@ describe 'Users tests - PUT method' do
     response_get_users = users_requests.get_all_users
     @payload['email'] = response_get_users.parsed_response['usuarios'][0]['email']
 
-    response = users_requests.put_user(@user_id, @payload.to_json)
+    response = users_requests.put_user(@user_id, @payload)
 
     expect(response.code).to eql 400
     expect(response.parsed_response['message']).to eql 'Este email já está sendo usado'

@@ -22,6 +22,6 @@ class ProductsRequests < Base
 
   def put_product(token, id, payload)
     self.class.put("/produtos/#{id}", headers: { "Authorization": token, "Content-Type": 'application/json' },
-                                      body: payload)
+                                      body: payload.to_json)
   end
 end
