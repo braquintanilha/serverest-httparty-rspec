@@ -4,7 +4,7 @@ describe 'Login tests - POST method' do
   user = load_fixture('user')
 
   it 'succesfully login' do
-    users_requests.post_user(user['valid'].to_json)
+    users_requests.post_user(user['valid'])
     response = login_requests.login(user['valid']['email'], user['valid']['password'])
 
     expect(response.code).to eql 200
@@ -12,7 +12,7 @@ describe 'Login tests - POST method' do
   end
 
   it 'validates the json schema' do
-    users_requests.post_user(user['valid'].to_json)
+    users_requests.post_user(user['valid'])
     response = login_requests.login(user['valid']['email'], user['valid']['password'])
 
     expect(response.body).to match_json_schema('login/post_login')
